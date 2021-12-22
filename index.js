@@ -1,12 +1,15 @@
 const express = require('express');
+
+const bodyParser = require('body-parser')
 //initialize routes
-const routes = require('./routes/api');
 
 // set up exprss app
 const app = express();
 
 // write path as a first parametr
-app.use('/api',routes);
+app.use(bodyParser.json());
+
+app.use('/api',require('./routes/api'));
 
 
 
