@@ -16,6 +16,13 @@ app.use(bodyParser.json());
 // write path as a first parametr
 app.use('/api',require('./routes/api'));
 
+//Error handling middleware
+
+app.use((err,req,res,next)=>{
+    console.log(err);
+    res.status(422).send({error:err.get_message});
+});
+
 
 
 //listen for request
