@@ -11,6 +11,8 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/ninjago');
 mongoose.Promise = global.Promise;
 
+app.use(express.static('public'));
+
 
 app.use(bodyParser.json());
 // write path as a first parametr
